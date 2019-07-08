@@ -1,0 +1,15 @@
+[Unit]
+Description=Syncplay Container
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=-/usr/bin/docker stop %n
+ExecStartPre=-/usr/bin/docker rm %n
+ExecStartPre=/usr/bin/docker pull godbone/syncplay-server
+ExecStart=/usr/bin/docker run --rm --name %n -p 8999:8999 -v /etc/letsencrypt:/etc/letsencrypt -e PASSWORD=****** -e TLS=/etc/letsencrypt/live/syncplay.mydomain.tld godbone/syncplay-server
+
+[Install]
+WantedBy=multi-user.target
