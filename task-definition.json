@@ -1,7 +1,7 @@
 {
   "family": "syncplay",
   "containerDefinitions": [{
-    "image": "euank/syncplay-server",
+    "image": "godbone/syncplay-server",
     "name": "app",
     "memory": 50,
     "portMappings": [{

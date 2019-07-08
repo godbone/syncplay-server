@@ -13,7 +13,8 @@ docker create \
 --net=host \
 -e PASSWORD=<PASSWORD> \
 -e PORT=<PORT> \
-bentech2/syncplay-server
+-e TLS=<TLS> \
+godbone/syncplay-server
 ```
 
 ## Docker Deploy
